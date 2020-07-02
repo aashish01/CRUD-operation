@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}View Item{% endblock %}
+
+{% block content %}
+<p style="text-align: center;color:red; font-size:24px;"> <b>List of Products</b></p>
+<table class='table table-bordered'>
+    <thead class='boder-bottom font-weight-bold'>
+        <tr style='font-size:20px;font-weight:bold;'>
+            <td>Product Name </td>
+            <td>Product Price </td>
+            <td>Product Brand </td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.brand}}</td>
+            <td>
+                <a href="edit/{{item.id}}" class='btn btn-info' style="color: black;">Edit</a>
+                <a href="delt/{{item.id}}" class='btn btn-danger'style="color: black;">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button class='btn btn-success'><a href="add" style="color: black; font-weight:bold;">Add new Product</a></button>
+
+{% endblock %}
